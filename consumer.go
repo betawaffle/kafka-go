@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"errors"
@@ -43,11 +43,6 @@ func (ce ConsumerErrors) Error() string {
 // Consumer manages PartitionConsumers which process Kafka messages from brokers. You MUST call Close()
 // on a consumer to avoid leaks, it will not be garbage-collected automatically when it passes out of
 // scope.
-//
-// Sarama's Consumer type does not currently support automatic consumer-group rebalancing and offset tracking.
-// For Zookeeper-based tracking (Kafka 0.8.2 and earlier), the https://github.com/wvanbergen/kafka library
-// builds on Sarama to add this support. For Kafka-based tracking (Kafka 0.9 and later), the
-// https://github.com/bsm/sarama-cluster library builds on Sarama to add this support.
 type Consumer interface {
 
 	// Topics returns the set of available topics as retrieved from the cluster
@@ -256,7 +251,7 @@ func (c *consumer) abandonBrokerConsumer(brokerWorker *brokerConsumer) {
 // loop. The PartitionConsumer will only stop itself in one case: when the offset being consumed is reported
 // as out of range by the brokers. In this case you should decide what you want to do (try a different offset,
 // notify a human, etc) and handle it appropriately. For all other error cases, it will just keep retrying.
-// By default, it logs these errors to sarama.Logger; if you want to be notified directly of all errors, set
+// By default, it logs these errors to kafka.Logger; if you want to be notified directly of all errors, set
 // your config's Consumer.Return.Errors to true and read from the Errors channel, using a select statement
 // or a separate goroutine. Check out the Consumer examples to see implementations of these different approaches.
 //

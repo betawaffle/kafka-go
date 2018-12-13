@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"os"
@@ -266,16 +266,16 @@ func ExampleConfig_metrics() {
 
 	config := NewConfig()
 	// Use a prefix registry instead of the default local one
-	config.MetricRegistry = metrics.NewPrefixedChildRegistry(appMetricRegistry, "sarama.")
+	config.MetricRegistry = metrics.NewPrefixedChildRegistry(appMetricRegistry, "kafka-go.")
 
-	// Simulate a metric created by sarama without starting a broker
-	saramaGauge := metrics.GetOrRegisterGauge("m2", config.MetricRegistry)
-	saramaGauge.Update(2)
+	// Simulate a metric created by this library without starting a broker
+	libGauge := metrics.GetOrRegisterGauge("m2", config.MetricRegistry)
+	libGauge.Update(2)
 
 	metrics.WriteOnce(appMetricRegistry, os.Stdout)
 	// Output:
 	// gauge m1
 	//   value:               1
-	// gauge sarama.m2
+	// gauge kafka-go.m2
 	//   value:               2
 }

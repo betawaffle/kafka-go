@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type OffsetResponseBlock struct {
 	Err       KError

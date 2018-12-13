@@ -1,4 +1,4 @@
-sarama
+kafka-go
 ======
 
 An MIT-licensed Go client library for [Apache Kafka](https://kafka.apache.org/) version 2.0 (and later). Originally forked from [Sarama](https://shopify.github.io/sarama/) from Shopify.

@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"bytes"
@@ -26,7 +26,7 @@ type RequestNotifierFunc func(bytesRead, bytesWritten int)
 
 // MockBroker is a mock Kafka broker that is used in unit tests. It is exposed
 // to facilitate testing of higher level or specialized consumers and producers
-// built on top of Sarama. Note that it does not 'mimic' the Kafka API protocol,
+// built on top of this library. Note that it does not 'mimic' the Kafka API protocol,
 // but rather provides a facility to do that. It takes care of the TCP
 // transport, request unmarshaling, response marshaling, and makes it the test
 // writer responsibility to program correct according to the Kafka API protocol
@@ -39,7 +39,7 @@ type RequestNotifierFunc func(bytesRead, bytesWritten int)
 // response for, then it returns nothing and the request times out.
 //
 // A set of MockRequest builders to define mappings used by MockBroker is
-// provided by Sarama. But users can develop MockRequests of their own and use
+// provided by this library. But users can develop MockRequests of their own and use
 // them along with or instead of the standard ones.
 //
 // When running tests with MockBroker it is strongly recommended to specify

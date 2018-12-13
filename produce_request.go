@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	metrics "github.com/rcrowley/go-metrics"

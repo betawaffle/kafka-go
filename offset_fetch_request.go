@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type OffsetFetchRequest struct {
 	Version       int16

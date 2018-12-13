@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"reflect"
@@ -68,7 +68,7 @@ func TestDescribeGroupsResponse(t *testing.T) {
 	if len(group0.Members) != 1 {
 		t.Error("Unxpected groups[0].Members, found", group0.Members)
 	}
-	if group0.Members["id"].ClientId != "sarama" {
+	if group0.Members["id"].ClientId != "kafka-go" {
 		t.Error("Unxpected groups[0].Members[id].ClientId, found", group0.Members["id"].ClientId)
 	}
 	if group0.Members["id"].ClientHost != "localhost" {

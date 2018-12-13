@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type OffsetCommitResponse struct {
 	Version        int16

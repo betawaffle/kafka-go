@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"testing"
@@ -14,7 +14,7 @@ func TestFuncOffsetManager(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	offsetManager, err := NewOffsetManagerFromClient("sarama.TestFuncOffsetManager", client)
+	offsetManager, err := NewOffsetManagerFromClient("kafka-go.TestFuncOffsetManager", client)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type DescribeConfigsRequest struct {
 	Version         int16

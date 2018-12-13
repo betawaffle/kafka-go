@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type HeartbeatResponse struct {
 	Err KError

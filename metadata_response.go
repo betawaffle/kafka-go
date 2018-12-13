@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type PartitionMetadata struct {
 	Err             KError

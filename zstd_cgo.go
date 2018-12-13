@@ -1,6 +1,6 @@
 // +build cgo
 
-package sarama
+package kafka
 
 import "github.com/DataDog/zstd"
 

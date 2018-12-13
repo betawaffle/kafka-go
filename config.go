@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"compress/gzip"
@@ -12,11 +12,11 @@ import (
 	metrics "github.com/rcrowley/go-metrics"
 )
 
-const defaultClientID = "sarama"
+const defaultClientID = "kafka-go"
 
 var validID = regexp.MustCompile(`\A[A-Za-z0-9._-]+\z`)
 
-// Config is used to pass multiple configuration options to Sarama's constructors.
+// Config is used to pass multiple configuration options to this library's constructors.
 type Config struct {
 	// Admin is the namespace for ClusterAdmin properties used by the administrative Kafka client.
 	Admin struct {
@@ -149,7 +149,7 @@ type Config struct {
 		// into the subsequent batch.
 		Flush struct {
 			// The best-effort number of bytes needed to trigger a flush. Use the
-			// global sarama.MaxRequestSize to set a hard upper limit.
+			// global kafka.MaxRequestSize to set a hard upper limit.
 			Bytes int
 			// The best-effort number of messages needed to trigger a flush. Use
 			// `MaxMessages` to set a hard upper limit.
@@ -250,7 +250,7 @@ type Config struct {
 			// ErrMessageTooLarge and will not be consumable, so you must be sure
 			// this is at least as large as your largest message. Defaults to 0
 			// (no limit). Similar to the JVM's `fetch.message.max.bytes`. The
-			// global `sarama.MaxResponseSize` still applies.
+			// global `kafka.MaxResponseSize` still applies.
 			Max int32
 		}
 		// The maximum amount of time the broker will wait for Consumer.Fetch.Min
@@ -316,7 +316,7 @@ type Config struct {
 	}
 
 	// A user-provided string sent with every request to the brokers for logging,
-	// debugging, and auditing purposes. Defaults to "sarama", but you should
+	// debugging, and auditing purposes. Defaults to "kafka-go", but you should
 	// probably set it to something specific to your application.
 	ClientID string
 	// The number of events to buffer in internal and external channels. This
@@ -324,7 +324,7 @@ type Config struct {
 	// in the background while user code is working, greatly improving throughput.
 	// Defaults to 256.
 	ChannelBufferSize int
-	// The version of Kafka that Sarama will assume it is running against.
+	// The version of Kafka that this library will assume it is running against.
 	// Defaults to the oldest supported stable version. Since Kafka provides
 	// backwards-compatibility, setting it to a version older than you have
 	// will not break anything, although it may prevent you from using the
@@ -334,7 +334,7 @@ type Config struct {
 	// The registry to define metrics into.
 	// Defaults to a local registry.
 	// If you want to disable metrics gathering, set "metrics.UseNilMetrics" to "true"
-	// prior to starting Sarama.
+	// prior to using this library.
 	// See Examples on how to use the metrics registry
 	MetricRegistry metrics.Registry
 }
@@ -439,7 +439,7 @@ func (c *Config) Validate() error {
 		Logger.Println("Consumer.Group.Rebalance.Timeout only supports millisecond precision; nanoseconds will be truncated.")
 	}
 	if c.ClientID == defaultClientID {
-		Logger.Println("ClientID is the default of 'sarama', you should consider setting it to something application-specific.")
+		Logger.Println("ClientID is the default of 'kafka-go', you should consider setting it to something application-specific.")
 	}
 
 	// validate Net values

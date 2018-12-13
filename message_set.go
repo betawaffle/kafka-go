@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type MessageBlock struct {
 	Offset int64

@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type HeartbeatRequest struct {
 	GroupId      string

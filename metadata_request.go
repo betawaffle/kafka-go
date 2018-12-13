@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type MetadataRequest struct {
 	Version                int16

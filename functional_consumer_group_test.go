@@ -1,6 +1,6 @@
 // +build go1.9
 
-package sarama
+package kafka
 
 import (
 	"context"
@@ -149,7 +149,7 @@ func TestFuncConsumerGroupFuzzy(t *testing.T) {
 // --------------------------------------------------------------------
 
 func testFuncConsumerGroupID(t *testing.T) string {
-	return fmt.Sprintf("sarama.%s%d", t.Name(), time.Now().UnixNano())
+	return fmt.Sprintf("kafka-go.%s%d", t.Name(), time.Now().UnixNano())
 }
 
 func testFuncConsumerGroupFuzzySeed(topic string) error {

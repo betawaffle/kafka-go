@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type AddOffsetsToTxnRequest struct {
 	TransactionalID string

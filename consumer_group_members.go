@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 //ConsumerGroupMemberMetadata holds the metadata for consumer group
 type ConsumerGroupMemberMetadata struct {

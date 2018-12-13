@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 type AclFilter struct {
 	ResourceType   AclResourceType

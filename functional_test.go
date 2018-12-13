@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"log"
@@ -31,7 +31,7 @@ var (
 
 func init() {
 	if os.Getenv("DEBUG") == "true" {
-		Logger = log.New(os.Stdout, "[sarama] ", log.LstdFlags)
+		Logger = log.New(os.Stdout, "[kafka-go] ", log.LstdFlags)
 	}
 
 	seed := time.Now().UTC().UnixNano()

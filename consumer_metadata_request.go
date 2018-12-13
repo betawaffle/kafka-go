@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 //ConsumerMetadataRequest is used for metadata requests
 type ConsumerMetadataRequest struct {

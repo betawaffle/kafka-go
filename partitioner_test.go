@@ -1,4 +1,4 @@
-package sarama
+package kafka
 
 import (
 	"crypto/rand"
@@ -207,7 +207,7 @@ func TestManualPartitioner(t *testing.T) {
 	}
 }
 
-// By default, Sarama uses the message's key to consistently assign a partition to
+// By default, this library uses the message's key to consistently assign a partition to
 // a message using hashing. If no key is set, a random partition will be chosen.
 // This example shows how you can partition messages randomly, even when a key is set,
 // by overriding Config.Producer.Partitioner.
