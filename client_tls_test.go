@@ -1,16 +1,15 @@
 package sarama
 
 import (
-	"math/big"
-	"net"
-	"testing"
-	"time"
-
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/tls"
 	"crypto/x509"
 	"crypto/x509/pkix"
+	"math/big"
+	"net"
+	"testing"
+	"time"
 )
 
 func TestTLS(t *testing.T) {

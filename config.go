@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/rcrowley/go-metrics"
+	metrics "github.com/rcrowley/go-metrics"
 )
 
 const defaultClientID = "sarama"

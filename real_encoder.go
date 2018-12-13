@@ -3,7 +3,7 @@ package sarama
 import (
 	"encoding/binary"
 
-	"github.com/rcrowley/go-metrics"
+	metrics "github.com/rcrowley/go-metrics"
 )
 
 type realEncoder struct {

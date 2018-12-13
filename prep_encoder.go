@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/rcrowley/go-metrics"
+	metrics "github.com/rcrowley/go-metrics"
 )
 
 type prepEncoder struct {
