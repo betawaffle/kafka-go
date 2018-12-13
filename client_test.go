@@ -99,7 +99,7 @@ func TestClientDoesntCachePartitionsForTopicsWithErrors(t *testing.T) {
 	}
 
 	// Should still use the cache of a known topic
-	partitions, err = client.Partitions("my_topic")
+	_, err = client.Partitions("my_topic")
 	if err != nil {
 		t.Errorf("Expected no error, found %v", err)
 	}
